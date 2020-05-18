@@ -141,7 +141,6 @@ function addElementToInfo(encoded, encodingContainer) {
 }
 
 function encoder() {
-  console.log('encoding...')
   var info = {
     btl: NOT_AVAILABLE,
     btc: NOT_AVAILABLE,
@@ -159,9 +158,7 @@ function encoder() {
     navigator.getBattery().then(function (battery) {
       info.btl = battery.level
       info.btc = battery.charging
-      console.log('info: ', info)
 
-      //TODO: ENCRYPTION HERE
       encodeAndDecode(JSON.stringify(info));
     })
   } else {
