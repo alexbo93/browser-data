@@ -119,9 +119,25 @@ function decode(base64) {
 
 function encodeAndDecode(string) {
   var encoded = encode(string);
-  console.log('encoded: ', encoded);
+  addEncodingInfo(encoded);
+
   var decoded = decode(encoded);
-  console.log('decoded: ', decoded);
+  addElementToInfo(decoded);
+}
+
+function addEncodingInfo(encoded) {
+  var encodingContainer = document.getElementById('encoding-info');
+  encodingContainer.innerHTML = '';
+
+  addElementToInfo(encoded, encodingContainer)
+}
+
+function addElementToInfo(encoded, encodingContainer) {
+  var encodingContainer = document.getElementById('encoding-info');
+  var encodingLabel = document.createElement('div')
+  encodingLabel.innerHTML = encoded
+
+  encodingContainer.appendChild(encodingLabel)
 }
 
 function encoder() {
